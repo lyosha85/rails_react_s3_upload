@@ -2,7 +2,7 @@ FROM ruby:2.5.0
 MAINTAINER Alex
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev \
+    apt-get install -y build-essential libpq-dev nodejs\
     postgresql-client --fix-missing --no-install-recommends
 
 ENV APP_HOME /app
