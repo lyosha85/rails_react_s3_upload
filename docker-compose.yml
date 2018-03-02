@@ -1,0 +1,42 @@
+version: '2'
+services:
+  react_s3_upload: &dev
+    build: .
+    container_name: rails_react_s3_upload
+    command: sleep infinity
+    ports:
+      - '80:3000'
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/app
+      - bundle:/usr/local/bundle
+      - postgres:/var/lib/postgresql/data
+      - tmp:/app/tmp
+
+    environment:
+      RAILS_ENV: development
+      APP_BASE_DOMAIN: rails-react-s3-upload.127.0.0.1.xip.io
+
+  test:
+    <<: *dev
+    container_name: rails_react_s3_upload_test
+    ports: []
+    environment:
+      - RAILS_ENV=test
+
+  postgres:
+    container_name: postgres
+    image: postgres:10.1
+    environment:
+      POSTGRES_USER: rails
+      POSTGRES_PASSWORD: secret
+    ports:
+      - '5432'
+    volumes:
+    - 'postgres:/var/lib/postgresql/data'
+
+volumes:
+  postgres:
+  bundle:
+  tmp:
