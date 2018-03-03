@@ -57,3 +57,9 @@ gem 'dotenv-rails'
 gem 'paperclip'
 gem 'delayed_job_active_record'
 gem 'aws-sdk'
+
+gem 'react-rails'
+gem 'jquery-rails'
+source 'http://rails-assets.org' do
+  gem 'rails-assets-lodash'
+end
