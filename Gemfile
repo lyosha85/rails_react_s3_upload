@@ -56,3 +56,4 @@ gem 'dotenv-rails'
 
 gem 'paperclip'
 gem 'delayed_job_active_record'
+gem 'aws-sdk'
