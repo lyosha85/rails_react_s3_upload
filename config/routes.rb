@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       resources :uploads, only: :create
     end
   end
+  root to: 'react#show'
+  get '*path', to: 'react#show', constraints: { format: 'html' }
 end
